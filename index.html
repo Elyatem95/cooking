@@ -1,206 +1,156 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cooking_app</title>
-    <style>
-        body { font-family: sans-serif; margin: 20px; }
-        .section { margin-bottom: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
-        h2 { margin-top: 0; }
-        label { display: inline-block; width: 80px; margin-bottom: 5px; }
-        input[type="text"], input[type="email"], input[type="number"] { margin-bottom: 10px; padding: 5px; width: 200px; }
-        button { padding: 8px 15px; margin-right: 10px; cursor: pointer; }
-        pre { background-color: #f4f4f4; padding: 10px; border: 1px solid #ddd; border-radius: 4px; white-space: pre-wrap; word-wrap: break-word; }
-    </style>
-</head>
-<body>
-    <h1>User API Test</h1>
+{% extends "base.html" %}
 
-    <!-- Get All Users -->
-    <div class="section">
-        <h2>Get All Users (GET /users)</h2>
-        <button onclick="getUsers()">Get Users</button>
-        <pre id="get-users-result"></pre>
+{% block title %}الرئيسية - شن نطيبلك يا سالم{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-section text-center py-5 mb-5" style="background-color: var(--primary-color); color: white;">
+    <h1 class="display-4 mb-3">شن نطيبلك يا سالم</h1>
+    <p class="lead mb-4">موقعك المفضل لاكتشاف وصفات طعام رائعة باستخدام المكونات المتوفرة لديك</p>
+    <p class="mb-5">قلل من هدر الطعام واستمتع بوجبات شهية من مكونات ثلاجتك</p>
+    <a href="{{ url_for('search.ingredient_search') }}" class="btn btn-light btn-lg">أخبرنا ماذا لديك في ثلاجتك؟</a>
+</div>
+
+<!-- How It Works Section -->
+<div class="container mb-5">
+    <h2 class="text-center mb-5">كيف يعمل الموقع؟</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-clipboard-list fa-3x mb-3 text-primary"></i>
+                    <h3 class="card-title">1. أدخل المكونات</h3>
+                    <p class="card-text">حدد المكونات المتوفرة لديك من القوائم المصنفة (خضروات، فواكه، لحوم، وغيرها)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-search fa-3x mb-3 text-primary"></i>
+                    <h3 class="card-title">2. سنبحث لك عن الوصفات</h3>
+                    <p class="card-text">سنقوم بالبحث في قاعدة بياناتنا لإيجاد أفضل الوصفات التي تناسب المكونات المتوفرة لديك</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-utensils fa-3x mb-3 text-primary"></i>
+                    <h3 class="card-title">3. استمتع بالطبخ</h3>
+                    <p class="card-text">اختر الوصفة المناسبة واتبع خطوات التحضير البسيطة لتحضير وجبة شهية</p>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    <!-- Create User -->
-    <div class="section">
-        <h2>Create User (POST /users)</h2>
-        <label for="create-username">Username:</label>
-        <input type="text" id="create-username" name="username"><br>
-        <label for="create-email">Email:</label>
-        <input type="email" id="create-email" name="email"><br>
-        <button onclick="createUser()">Create User</button>
-        <pre id="create-user-result"></pre>
+<!-- Featured Recipes Section -->
+<div class="container mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>وصفات مميزة</h2>
+        <a href="#" class="btn btn-outline-primary">عرض المزيد</a>
     </div>
-
-    <!-- Get Single User -->
-    <div class="section">
-        <h2>Get Single User (GET /users/&lt;id&gt;)</h2>
-        <label for="get-user-id">User ID:</label>
-        <input type="number" id="get-user-id" name="user_id"><br>
-        <button onclick="getUser()">Get User</button>
-        <pre id="get-user-result"></pre>
+    <div class="row">
+        <!-- Recipe 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/kabsa.png') }}" class="card-img-top" alt="كبسة لحم">
+                <div class="card-body">
+                    <h5 class="card-title">كبسة لحم</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">عربي</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 60 دقيقة</span>
+                    </div>
+                    <p class="card-text">طبق سعودي تقليدي من الأرز واللحم المتبل بالبهارات العربية الأصيلة.</p>
+                    <a href="{{ url_for('recipe_details', recipe_id=1) }}" class="btn btn-primary">عرض الوصفة</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recipe 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/pasta.png') }}" class="card-img-top" alt="باستا بالخضار">
+                <div class="card-body">
+                    <h5 class="card-title">باستا بالخضار</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">عالمي</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 30 دقيقة</span>
+                    </div>
+                    <p class="card-text">باستا سريعة التحضير مع تشكيلة من الخضروات الطازجة وصلصة الطماطم.</p>
+                    <a href="{{ url_for('recipe_details', recipe_id=2) }}" class="btn btn-primary">عرض الوصفة</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recipe 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/fattoush.png') }}" class="card-img-top" alt="فتوش">
+                <div class="card-body">
+                    <h5 class="card-title">فتوش</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">عربي</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 15 دقيقة</span>
+                    </div>
+                    <p class="card-text">سلطة شامية منعشة مع الخبز المحمص والخضروات الطازجة وصلصة الليمون.</p>
+                    <a href="{{ url_for('recipe_details', recipe_id=3) }}" class="btn btn-primary">عرض الوصفة</a>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    <!-- Update User -->
-    <div class="section">
-        <h2>Update User (PUT /users/&lt;id&gt;)</h2>
-        <label for="update-user-id">User ID:</label>
-        <input type="number" id="update-user-id" name="user_id"><br>
-        <label for="update-username">New Username:</label>
-        <input type="text" id="update-username" name="username"><br>
-        <label for="update-email">New Email:</label>
-        <input type="email" id="update-email" name="email"><br>
-        <button onclick="updateUser()">Update User</button>
-        <pre id="update-user-result"></pre>
+<!-- Explore Sections -->
+<div class="container mb-5">
+    <h2 class="text-center mb-4">استكشف أقسام الموقع</h2>
+    <div class="row">
+        <!-- Arabic Recipes -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">أشهر الأكلات العربية</h3>
+                    <p class="card-text">استكشف مجموعة متنوعة من أشهر الأطباق العربية التقليدية من مختلف البلدان العربية.</p>
+                    <a href="{{ url_for('arabic_recipes') }}" class="btn btn-primary">استكشف الأكلات العربية</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- International Recipes -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">أشهر الأكلات العالمية</h3>
+                    <p class="card-text">اكتشف أشهر الأطباق العالمية من مختلف المطابخ حول العالم بطرق تحضير مبسطة.</p>
+                    <a href="{{ url_for('international_recipes') }}" class="btn btn-primary">استكشف الأكلات العالمية</a>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    <!-- Delete User -->
-    <div class="section">
-        <h2>Delete User (DELETE /users/&lt;id&gt;)</h2>
-        <label for="delete-user-id">User ID:</label>
-        <input type="number" id="delete-user-id" name="user_id"><br>
-        <button onclick="deleteUser()">Delete User</button>
-        <pre id="delete-user-result"></pre>
+<!-- Newsletter Section -->
+<div class="container mb-5">
+    <div class="card bg-light">
+        <div class="card-body text-center py-4">
+            <h3 class="card-title">اشترك في نشرتنا البريدية</h3>
+            <p class="card-text mb-4">احصل على أحدث الوصفات ونصائح الطبخ مباشرة إلى بريدك الإلكتروني</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="أدخل بريدك الإلكتروني" aria-label="Email">
+                        <button class="btn btn-primary" type="button">اشترك</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+{% endblock %}
 
-    <script>
-        const API_BASE_URL = '/api/users';
-
-        // Helper function to display results
-        function displayResult(elementId, data) {
-            document.getElementById(elementId).textContent = JSON.stringify(data, null, 2);
-        }
-
-        // Helper function to display errors
-        function displayError(elementId, error) {
-            document.getElementById(elementId).textContent = `Error: ${error.message || error}`;
-        }
-
-        // GET /users
-        async function getUsers() {
-            const resultElementId = 'get-users-result';
-            try {
-                const response = await fetch(API_BASE_URL);
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                const data = await response.json();
-                displayResult(resultElementId, data);
-            } catch (error) {
-                displayError(resultElementId, error);
-            }
-        }
-
-        // POST /users
-        async function createUser() {
-            const resultElementId = 'create-user-result';
-            const username = document.getElementById('create-username').value;
-            const email = document.getElementById('create-email').value;
-            if (!username || !email) {
-                displayError(resultElementId, 'Username and email cannot be empty');
-                return;
-            }
-            try {
-                const response = await fetch(API_BASE_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username, email })
-                });
-                const data = await response.json();
-                if (!response.ok) throw new Error(data.message || `HTTP error! status: ${response.status}`);
-                displayResult(resultElementId, data);
-                // 清空输入框
-                document.getElementById('create-username').value = '';
-                document.getElementById('create-email').value = '';
-            } catch (error) {
-                displayError(resultElementId, error);
-            }
-        }
-
-        // GET /users/<id>
-        async function getUser() {
-            const resultElementId = 'get-user-result';
-            const userId = document.getElementById('get-user-id').value;
-            if (!userId) {
-                displayError(resultElementId, 'User ID cannot be empty');
-                return;
-            }
-            try {
-                const response = await fetch(`${API_BASE_URL}/${userId}`);
-                 if (response.status === 404) throw new Error('User not found');
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                const data = await response.json();
-                displayResult(resultElementId, data);
-            } catch (error) {
-                displayError(resultElementId, error);
-            }
-        }
-
-        // PUT /users/<id>
-        async function updateUser() {
-            const resultElementId = 'update-user-result';
-            const userId = document.getElementById('update-user-id').value;
-            const username = document.getElementById('update-username').value;
-            const email = document.getElementById('update-email').value;
-            if (!userId) {
-                displayError(resultElementId, 'User ID cannot be empty');
-                return;
-            }
-            const updateData = {};
-            if (username) updateData.username = username;
-            if (email) updateData.email = email;
-            if (Object.keys(updateData).length === 0) {
-                 displayError(resultElementId, 'Please enter a username or email to update');
-                 return;
-            }
-
-            try {
-                const response = await fetch(`${API_BASE_URL}/${userId}`, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(updateData)
-                });
-                if (response.status === 404) throw new Error('User not found');
-                const data = await response.json();
-                 if (!response.ok) throw new Error(data.message || `HTTP error! status: ${response.status}`);
-                displayResult(resultElementId, data);
-                 // Clear input fields
-                document.getElementById('update-username').value = '';
-                document.getElementById('update-email').value = '';
-            } catch (error) {
-                displayError(resultElementId, error);
-            }
-        }
-
-        // DELETE /users/<id>
-        async function deleteUser() {
-            const resultElementId = 'delete-user-result';
-            const userId = document.getElementById('delete-user-id').value;
-            if (!userId) {
-                displayError(resultElementId, 'User ID cannot be empty');
-                return;
-            }
-            try {
-                const response = await fetch(`${API_BASE_URL}/${userId}`, {
-                    method: 'DELETE'
-                });
-                if (response.status === 404) throw new Error('User not found');
-                if (!response.ok && response.status !== 204) throw new Error(`HTTP error! status: ${response.status}`); // Allow 204
-                // 204 No Content indicates success
-                if (response.status === 204) {
-                     displayResult(resultElementId, { message: `User ID ${userId} has been successfully deleted` });
-                } else {
-                     // Try to read potential error message even on success-like status if not 204
-                     const data = await response.text();
-                     displayResult(resultElementId, data || { message: `Deletion successful, status code: ${response.status}` });
-                }
-                 // Clear input field
-                document.getElementById('delete-user-id').value = '';
-            } catch (error) {
-                displayError(resultElementId, error);
-            }
-        }
-    </script>
-</body>
-</html>
+{% block extra_js %}
+<script>
+    // أي سكريبت إضافي خاص بالصفحة الرئيسية
+</script>
+{% endblock %}
