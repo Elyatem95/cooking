@@ -1,0 +1,428 @@
+{% extends "base.html" %}
+
+{% block title %}تفاصيل الوصفة - شن نطيبلك يا سالم{% endblock %}
+
+{% block content %}
+<!-- تفاصيل الوصفة -->
+<div class="container my-4">
+    <div class="row">
+        <!-- صورة الوصفة -->
+        <div class="col-lg-6 mb-4">
+            <img src="{{ url_for('static', filename='images/kabsa.png') }}" class="img-fluid rounded" alt="كبسة لحم">
+        </div>
+        
+        <!-- معلومات الوصفة -->
+        <div class="col-lg-6">
+            <h1 class="mb-3">كبسة لحم</h1>
+            <div class="d-flex flex-wrap mb-3">
+                <span class="badge bg-secondary me-2 mb-2">عربي</span>
+                <span class="badge bg-secondary me-2 mb-2">سعودي</span>
+                <span class="badge bg-secondary me-2 mb-2">غداء</span>
+            </div>
+            
+            <div class="recipe-meta mb-4">
+                <div class="row">
+                    <div class="col-6 col-md-3 mb-2">
+                        <div class="recipe-meta-item">
+                            <i class="far fa-clock"></i>
+                            <span>وقت التحضير</span>
+                            <strong>20 دقيقة</strong>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 mb-2">
+                        <div class="recipe-meta-item">
+                            <i class="fas fa-fire"></i>
+                            <span>وقت الطهي</span>
+                            <strong>40 دقيقة</strong>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 mb-2">
+                        <div class="recipe-meta-item">
+                            <i class="fas fa-users"></i>
+                            <span>عدد الحصص</span>
+                            <strong>4 أشخاص</strong>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 mb-2">
+                        <div class="recipe-meta-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>مستوى الصعوبة</span>
+                            <strong>متوسط</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="recipe-rating mb-4">
+                <div class="d-flex align-items-center">
+                    <div class="rating me-2">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span>(4.9 من 5 - 120 تقييم)</span>
+                </div>
+            </div>
+            
+            <div class="recipe-description mb-4">
+                <p>الكبسة هي طبق سعودي تقليدي شهير في منطقة الخليج العربي، تتكون من الأرز واللحم المتبل بالبهارات العربية الأصيلة. تتميز بنكهتها الغنية ورائحتها الشهية، وتعتبر من أشهر الأطباق في المناسبات والولائم.</p>
+            </div>
+            
+            <div class="recipe-actions">
+                <button class="btn btn-primary me-2"><i class="fas fa-print me-1"></i> طباعة الوصفة</button>
+                <button class="btn btn-outline-primary me-2"><i class="fas fa-share-alt me-1"></i> مشاركة</button>
+                <button class="btn btn-outline-danger"><i class="far fa-heart me-1"></i> حفظ</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- المكونات وطريقة التحضير -->
+<div class="container my-5">
+    <div class="row">
+        <!-- المكونات -->
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">المكونات</h3>
+                </div>
+                <div class="card-body">
+                    <h4>مكونات اللحم:</h4>
+                    <ul class="ingredients-list">
+                        <li>1 كيلو لحم ضأن (مقطع قطع متوسطة)</li>
+                        <li>2 بصلة كبيرة (مفرومة)</li>
+                        <li>4 فصوص ثوم (مهروسة)</li>
+                        <li>2 ملعقة كبيرة معجون طماطم</li>
+                        <li>2 حبة طماطم (مقطعة مكعبات)</li>
+                        <li>2 حبة جزر (مقطعة شرائح)</li>
+                        <li>2 عود قرفة</li>
+                        <li>4 حبات هيل</li>
+                        <li>4 حبات فلفل أسود</li>
+                        <li>2 ورق غار</li>
+                        <li>ملح حسب الرغبة</li>
+                        <li>4 ملاعق كبيرة زيت نباتي</li>
+                    </ul>
+                    
+                    <h4>مكونات الأرز:</h4>
+                    <ul class="ingredients-list">
+                        <li>3 أكواب أرز بسمتي (منقوع ومصفى)</li>
+                        <li>5 أكواب مرق اللحم</li>
+                        <li>1 ملعقة صغيرة بهارات كبسة</li>
+                        <li>1/4 كوب زبيب</li>
+                        <li>1/4 كوب لوز محمص</li>
+                        <li>1/4 كوب صنوبر محمص</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- طريقة التحضير -->
+        <div class="col-lg-8 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">طريقة التحضير</h3>
+                </div>
+                <div class="card-body">
+                    <ol class="preparation-steps">
+                        <li>
+                            <h5>تحضير اللحم:</h5>
+                            <p>في قدر كبير، سخني الزيت على نار متوسطة، ثم أضيفي البصل المفروم وقلبيه حتى يذبل.</p>
+                        </li>
+                        <li>
+                            <p>أضيفي الثوم المهروس وقلبي لمدة دقيقة حتى تفوح رائحته.</p>
+                        </li>
+                        <li>
+                            <p>أضيفي قطع اللحم وقلبيها حتى يتغير لونها من جميع الجهات.</p>
+                        </li>
+                        <li>
+                            <p>أضيفي معجون الطماطم والطماطم المقطعة والجزر والبهارات (القرفة، الهيل، الفلفل الأسود، ورق الغار) والملح.</p>
+                        </li>
+                        <li>
+                            <p>أضيفي الماء الساخن حتى يغطي اللحم، ثم اتركيه على نار متوسطة حتى يغلي.</p>
+                        </li>
+                        <li>
+                            <p>خففي النار، غطي القدر واتركيه لمدة 30-40 دقيقة حتى ينضج اللحم.</p>
+                        </li>
+                        <li>
+                            <h5>تحضير الأرز:</h5>
+                            <p>صفي مرق اللحم واحتفظي به جانباً.</p>
+                        </li>
+                        <li>
+                            <p>في قدر كبير، ضعي الأرز المنقوع والمصفى، ثم أضيفي 5 أكواب من مرق اللحم وبهارات الكبسة.</p>
+                        </li>
+                        <li>
+                            <p>اتركي الأرز على نار عالية حتى يغلي، ثم خففي النار وغطي القدر واتركيه لمدة 15-20 دقيقة حتى ينضج الأرز.</p>
+                        </li>
+                        <li>
+                            <h5>التقديم:</h5>
+                            <p>ضعي الأرز في طبق التقديم، ثم ضعي قطع اللحم فوقه.</p>
+                        </li>
+                        <li>
+                            <p>زيني الطبق بالزبيب واللوز والصنوبر المحمص.</p>
+                        </li>
+                        <li>
+                            <p>قدميها ساخنة مع السلطة الخضراء واللبن الزبادي.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- نصائح ومعلومات إضافية -->
+<div class="container my-5">
+    <div class="row">
+        <!-- نصائح -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">نصائح الطبخ</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="tips-list">
+                        <li>يمكنك استخدام الدجاج بدلاً من اللحم لتحضير كبسة الدجاج.</li>
+                        <li>نقع الأرز لمدة 30 دقيقة قبل الطهي يساعد على الحصول على أرز مفلفل.</li>
+                        <li>يمكنك إضافة الفلفل الحار حسب الرغبة للحصول على طعم أكثر حرارة.</li>
+                        <li>تأكدي من طهي اللحم جيداً قبل إضافة الأرز للحصول على لحم طري.</li>
+                        <li>يمكنك استخدام قدر الضغط لتقليل وقت طهي اللحم.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- معلومات غذائية -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">معلومات غذائية</h3>
+                </div>
+                <div class="card-body">
+                    <div class="nutrition-info">
+                        <div class="row">
+                            <div class="col-6">
+                                <p><strong>السعرات الحرارية:</strong> 650 سعرة</p>
+                                <p><strong>البروتين:</strong> 35 جرام</p>
+                                <p><strong>الكربوهيدرات:</strong> 75 جرام</p>
+                                <p><strong>الدهون:</strong> 25 جرام</p>
+                            </div>
+                            <div class="col-6">
+                                <p><strong>الألياف:</strong> 4 جرام</p>
+                                <p><strong>الصوديوم:</strong> 850 ملجم</p>
+                                <p><strong>الكالسيوم:</strong> 120 ملجم</p>
+                                <p><strong>الحديد:</strong> 4.5 ملجم</p>
+                            </div>
+                        </div>
+                        <p class="mt-3"><small>* القيم الغذائية تقريبية لكل حصة</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- التعليقات والتقييمات -->
+<div class="container my-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">التعليقات والتقييمات</h3>
+        </div>
+        <div class="card-body">
+            <!-- نموذج إضافة تعليق -->
+            <div class="add-comment mb-4">
+                <h4>أضف تعليقك</h4>
+                <form>
+                    <div class="mb-3">
+                        <label for="rating" class="form-label">تقييمك:</label>
+                        <div class="rating-input">
+                            <i class="far fa-star" data-rating="1"></i>
+                            <i class="far fa-star" data-rating="2"></i>
+                            <i class="far fa-star" data-rating="3"></i>
+                            <i class="far fa-star" data-rating="4"></i>
+                            <i class="far fa-star" data-rating="5"></i>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">تعليقك:</label>
+                        <textarea class="form-control" id="comment" rows="3" placeholder="شاركنا تجربتك مع هذه الوصفة..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">إرسال التعليق</button>
+                </form>
+            </div>
+            
+            <!-- قائمة التعليقات -->
+            <div class="comments-list">
+                <h4>التعليقات (3)</h4>
+                
+                <!-- تعليق 1 -->
+                <div class="comment-item">
+                    <div class="d-flex">
+                        <div class="comment-avatar me-3">
+                            <img src="{{ url_for('static', filename='images/avatar1.png') }}" alt="صورة المستخدم" class="rounded-circle" width="50">
+                        </div>
+                        <div class="comment-content">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-1">أحمد محمد</h5>
+                                <small class="text-muted">منذ 3 أيام</small>
+                            </div>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>وصفة رائعة! جربتها البارحة وكانت النتيجة مذهلة. الأرز كان مفلفل تماماً واللحم طري جداً. سأجربها مرة أخرى قريباً.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- تعليق 2 -->
+                <div class="comment-item">
+                    <div class="d-flex">
+                        <div class="comment-avatar me-3">
+                            <img src="{{ url_for('static', filename='images/avatar2.png') }}" alt="صورة المستخدم" class="rounded-circle" width="50">
+                        </div>
+                        <div class="comment-content">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-1">سارة أحمد</h5>
+                                <small class="text-muted">منذ أسبوع</small>
+                            </div>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <p>وصفة جميلة، لكن أضفت المزيد من البهارات لأنني أحب النكهة القوية. أنصح بإضافة القليل من الكركم للحصول على لون أجمل للأرز.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- تعليق 3 -->
+                <div class="comment-item">
+                    <div class="d-flex">
+                        <div class="comment-avatar me-3">
+                            <img src="{{ url_for('static', filename='images/avatar3.png') }}" alt="صورة المستخدم" class="rounded-circle" width="50">
+                        </div>
+                        <div class="comment-content">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-1">محمد علي</h5>
+                                <small class="text-muted">منذ شهر</small>
+                            </div>
+                            <div class="rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>من أفضل وصفات الكبسة التي جربتها! الخطوات واضحة والنتيجة مضمونة. أنصح بتجربتها مع صلصة الطماطم الحارة كإضافة جانبية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- وصفات مشابهة -->
+<div class="container my-5">
+    <h3 class="mb-4">وصفات قد تعجبك</h3>
+    <div class="row">
+        <!-- وصفة 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/molokhia.png') }}" class="card-img-top" alt="ملوخية">
+                <div class="card-body">
+                    <h5 class="card-title">ملوخية</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">مصري</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 45 دقيقة</span>
+                    </div>
+                    <p class="card-text">طبق مصري شهير من أوراق الملوخية المطبوخة مع الدجاج أو اللحم.</p>
+                    <a href="{{ url_for('recipe_details', recipe_id=2) }}" class="btn btn-primary">عرض الوصفة</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- وصفة 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/couscous.png') }}" class="card-img-top" alt="كسكس">
+                <div class="card-body">
+                    <h5 class="card-title">كسكس مغربي</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">مغربي</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 60 دقيقة</span>
+                    </div>
+                    <p class="card-text">طبق مغربي تقليدي من الكسكس مع الخضروات واللحم المطهو ببطء.</p>
+                    <a href="{{ url_for('recipe_details', recipe_id=5) }}" class="btn btn-primary">عرض الوصفة</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- وصفة 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/curry.png') }}" class="card-img-top" alt="كاري">
+                <div class="card-body">
+                    <h5 class="card-title">كاري دجاج</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">هندي</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 45 دقيقة</span>
+                    </div>
+                    <p class="card-text">طبق هندي غني بالتوابل والبهارات مع الدجاج والخضروات.</p>
+                    <a href="{{ url_for('recipe_details', recipe_id=7) }}" class="btn btn-primary">عرض الوصفة</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // سكريبت لتفعيل نظام التقييم
+    document.addEventListener('DOMContentLoaded', function() {
+        const ratingStars = document.querySelectorAll('.rating-input i');
+        
+        ratingStars.forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = this.getAttribute('data-rating');
+                
+                // إعادة تعيين جميع النجوم
+                ratingStars.forEach(s => {
+                    s.classList.remove('fas');
+                    s.classList.add('far');
+                });
+                
+                // تعيين النجوم المحددة
+                for (let i = 0; i < rating; i++) {
+                    ratingStars[i].classList.remove('far');
+                    ratingStars[i].classList.add('fas');
+                }
+            });
+            
+            star.addEventListener('mouseover', function() {
+                const rating = this.getAttribute('data-rating');
+                
+                // إعادة تعيين جميع النجوم
+                ratingStars.forEach(s => {
+                    s.classList.remove('fas');
+                    s.classList.add('far');
+                });
+                
+                // تعيين النجوم المحددة
+                for (let i = 0; i < rating; i++) {
+                    ratingStars[i].classList.remove('far');
+                    ratingStars[i].classList.add('fas');
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

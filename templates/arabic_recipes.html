@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+
+{% block title %}أشهر الأكلات العربية - شن نطيبلك يا سالم{% endblock %}
+
+{% block content %}
+<!-- عنوان الصفحة -->
+<div class="container my-4">
+    <h1 class="text-center mb-4">أشهر الأكلات العربية</h1>
+    <p class="text-center lead mb-5">استكشف مجموعة متنوعة من أشهر الأطباق العربية التقليدية من مختلف البلدان العربية</p>
+</div>
+
+<!-- فلاتر البحث -->
+<div class="container search-filters mb-4">
+    <div class="row">
+        <div class="col-md-4 mb-3 mb-md-0">
+            <label for="countryFilter" class="form-label">البلد:</label>
+            <select class="form-select" id="countryFilter">
+                <option value="all" selected>الكل</option>
+                <option value="saudi">السعودية</option>
+                <option value="egypt">مصر</option>
+                <option value="levant">بلاد الشام</option>
+                <option value="maghreb">المغرب العربي</option>
+                <option value="gulf">الخليج العربي</option>
+            </select>
+        </div>
+        <div class="col-md-4 mb-3 mb-md-0">
+            <label for="mealTypeFilter" class="form-label">نوع الوجبة:</label>
+            <select class="form-select" id="mealTypeFilter">
+                <option value="all" selected>الكل</option>
+                <option value="breakfast">فطور</option>
+                <option value="lunch">غداء</option>
+                <option value="dinner">عشاء</option>
+                <option value="snack">وجبة خفيفة</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="difficultyFilter" class="form-label">مستوى الصعوبة:</label>
+            <select class="form-select" id="difficultyFilter">
+                <option value="all" selected>الكل</option>
+                <option value="easy">سهل</option>
+                <option value="medium">متوسط</option>
+                <option value="hard">صعب</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<!-- قائمة الوصفات -->
+<div class="container">
+    <div class="row">
+        <!-- وصفة 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/kabsa.png') }}" class="card-img-top" alt="كبسة لحم">
+                <div class="card-body">
+                    <h5 class="card-title">كبسة لحم</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">السعودية</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 60 دقيقة</span>
+                    </div>
+                    <p class="card-text">طبق سعودي تقليدي من الأرز واللحم المتبل بالبهارات العربية الأصيلة.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{{ url_for('recipe_details', recipe_id=1) }}" class="btn btn-primary">عرض الوصفة</a>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- وصفة 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/molokhia.png') }}" class="card-img-top" alt="ملوخية">
+                <div class="card-body">
+                    <h5 class="card-title">ملوخية</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">مصر</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 45 دقيقة</span>
+                    </div>
+                    <p class="card-text">طبق مصري شهير من أوراق الملوخية المطبوخة مع الدجاج أو اللحم.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{{ url_for('recipe_details', recipe_id=2) }}" class="btn btn-primary">عرض الوصفة</a>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- وصفة 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/fattoush.png') }}" class="card-img-top" alt="فتوش">
+                <div class="card-body">
+                    <h5 class="card-title">فتوش</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">بلاد الشام</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 15 دقيقة</span>
+                    </div>
+                    <p class="card-text">سلطة شامية منعشة مع الخبز المحمص والخضروات الطازجة وصلصة الليمون.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{{ url_for('recipe_details', recipe_id=3) }}" class="btn btn-primary">عرض الوصفة</a>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- وصفة 4 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/hummus.png') }}" class="card-img-top" alt="حمص">
+                <div class="card-body">
+                    <h5 class="card-title">حمص</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">بلاد الشام</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 20 دقيقة</span>
+                    </div>
+                    <p class="card-text">طبق شامي شهير من الحمص المهروس مع الطحينة والليمون وزيت الزيتون.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{{ url_for('recipe_details', recipe_id=6) }}" class="btn btn-primary">عرض الوصفة</a>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ترقيم الصفحات -->
+<div class="container">
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">السابق</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">التالي</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<!-- معلومات عن المطبخ العربي -->
+<div class="container my-5">
+    <div class="card bg-light">
+        <div class="card-body">
+            <h3 class="card-title">المطبخ العربي</h3>
+            <p>المطبخ العربي هو مزيج غني من الثقافات والتقاليد الطهوية المختلفة من جميع أنحاء العالم العربي. يتميز بالنكهات القوية والبهارات المتنوعة والأعشاب العطرية.</p>
+            <p>تختلف الأطباق العربية من منطقة إلى أخرى، ولكنها تشترك في استخدام مكونات أساسية مثل الأرز والقمح والخضروات والبقوليات واللحوم. كما تتميز بالتوازن بين النكهات والقيمة الغذائية العالية.</p>
+            <p>استكشف مجموعتنا المتنوعة من الوصفات العربية التقليدية واستمتع بتحضيرها في منزلك.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // سكريبت لتفعيل فلاتر البحث
+    document.addEventListener('DOMContentLoaded', function() {
+        const countryFilter = document.getElementById('countryFilter');
+        const mealTypeFilter = document.getElementById('mealTypeFilter');
+        const difficultyFilter = document.getElementById('difficultyFilter');
+        
+        // تحديث النتائج عند تغيير الفلاتر
+        function updateResults() {
+            // هنا سيتم إضافة الكود الفعلي لتحديث النتائج بناءً على الفلاتر المحددة
+            console.log('تحديث النتائج:', {
+                country: countryFilter.value,
+                mealType: mealTypeFilter.value,
+                difficulty: difficultyFilter.value
+            });
+        }
+        
+        countryFilter.addEventListener('change', updateResults);
+        mealTypeFilter.addEventListener('change', updateResults);
+        difficultyFilter.addEventListener('change', updateResults);
+    });
+</script>
+{% endblock %}

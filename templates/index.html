@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}الرئيسية - شن نطيبلك يا سالم{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-section text-center py-5 mb-5" style="background-color: var(--primary-color); color: white;">
+    <h1 class="display-4 mb-3">شن نطيبلك يا سالم</h1>
+    <p class="lead mb-4">موقعك المفضل لاكتشاف وصفات طعام رائعة باستخدام المكونات المتوفرة لديك</p>
+    <p class="mb-5">قلل من هدر الطعام واستمتع بوجبات شهية من مكونات ثلاجتك</p>
+    <a href="{{ url_for('search.ingredient_search') }}" class="btn btn-light btn-lg">أخبرنا ماذا لديك في ثلاجتك؟</a>
+</div>
+
+<!-- How It Works Section -->
+<div class="container mb-5">
+    <h2 class="text-center mb-5">كيف يعمل الموقع؟</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-clipboard-list fa-3x mb-3 text-primary"></i>
+                    <h3 class="card-title">1. أدخل المكونات</h3>
+                    <p class="card-text">حدد المكونات المتوفرة لديك من القوائم المصنفة (خضروات، فواكه، لحوم، وغيرها)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-search fa-3x mb-3 text-primary"></i>
+                    <h3 class="card-title">2. سنبحث لك عن الوصفات</h3>
+                    <p class="card-text">سنقوم بالبحث في قاعدة بياناتنا لإيجاد أفضل الوصفات التي تناسب المكونات المتوفرة لديك</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-utensils fa-3x mb-3 text-primary"></i>
+                    <h3 class="card-title">3. استمتع بالطبخ</h3>
+                    <p class="card-text">اختر الوصفة المناسبة واتبع خطوات التحضير البسيطة لتحضير وجبة شهية</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Recipes Section -->
+<div class="container mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>وصفات مميزة</h2>
+        <a href="#" class="btn btn-outline-primary">عرض المزيد</a>
+    </div>
+    <div class="row">
+        <!-- Recipe 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/kabsa.png') }}" class="card-img-top" alt="كبسة لحم">
+                <div class="card-body">
+                    <h5 class="card-title">كبسة لحم</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">عربي</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 60 دقيقة</span>
+                    </div>
+                    <p class="card-text">طبق سعودي تقليدي من الأرز واللحم المتبل بالبهارات العربية الأصيلة.</p>
+                    <a href="{{ url_for('recipe_details', recipe_id=1) }}" class="btn btn-primary">عرض الوصفة</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recipe 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/pasta.png') }}" class="card-img-top" alt="باستا بالخضار">
+                <div class="card-body">
+                    <h5 class="card-title">باستا بالخضار</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">عالمي</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 30 دقيقة</span>
+                    </div>
+                    <p class="card-text">باستا سريعة التحضير مع تشكيلة من الخضروات الطازجة وصلصة الطماطم.</p>
+                    <a href="{{ url_for('recipe_details', recipe_id=2) }}" class="btn btn-primary">عرض الوصفة</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recipe 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/fattoush.png') }}" class="card-img-top" alt="فتوش">
+                <div class="card-body">
+                    <h5 class="card-title">فتوش</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">عربي</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 15 دقيقة</span>
+                    </div>
+                    <p class="card-text">سلطة شامية منعشة مع الخبز المحمص والخضروات الطازجة وصلصة الليمون.</p>
+                    <a href="{{ url_for('recipe_details', recipe_id=3) }}" class="btn btn-primary">عرض الوصفة</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Explore Sections -->
+<div class="container mb-5">
+    <h2 class="text-center mb-4">استكشف أقسام الموقع</h2>
+    <div class="row">
+        <!-- Arabic Recipes -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">أشهر الأكلات العربية</h3>
+                    <p class="card-text">استكشف مجموعة متنوعة من أشهر الأطباق العربية التقليدية من مختلف البلدان العربية.</p>
+                    <a href="{{ url_for('arabic_recipes') }}" class="btn btn-primary">استكشف الأكلات العربية</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- International Recipes -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">أشهر الأكلات العالمية</h3>
+                    <p class="card-text">اكتشف أشهر الأطباق العالمية من مختلف المطابخ حول العالم بطرق تحضير مبسطة.</p>
+                    <a href="{{ url_for('international_recipes') }}" class="btn btn-primary">استكشف الأكلات العالمية</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Newsletter Section -->
+<div class="container mb-5">
+    <div class="card bg-light">
+        <div class="card-body text-center py-4">
+            <h3 class="card-title">اشترك في نشرتنا البريدية</h3>
+            <p class="card-text mb-4">احصل على أحدث الوصفات ونصائح الطبخ مباشرة إلى بريدك الإلكتروني</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="أدخل بريدك الإلكتروني" aria-label="Email">
+                        <button class="btn btn-primary" type="button">اشترك</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // أي سكريبت إضافي خاص بالصفحة الرئيسية
+</script>
+{% endblock %}

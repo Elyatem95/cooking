@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}أشهر الأكلات العالمية - شن نطيبلك يا سالم{% endblock %}
+
+{% block content %}
+<!-- عنوان الصفحة -->
+<div class="container my-4">
+    <h1 class="text-center mb-4">أشهر الأكلات العالمية</h1>
+    <p class="text-center lead mb-5">استكشف مجموعة متنوعة من أشهر الأطباق العالمية من مختلف المطابخ حول العالم بطرق تحضير مبسطة</p>
+</div>
+
+<!-- فلاتر البحث -->
+<div class="container search-filters mb-4">
+    <div class="row">
+        <div class="col-md-4 mb-3 mb-md-0">
+            <label for="cuisineFilter" class="form-label">المطبخ:</label>
+            <select class="form-select" id="cuisineFilter">
+                <option value="all" selected>الكل</option>
+                <option value="italian">الإيطالي</option>
+                <option value="indian">الهندي</option>
+                <option value="chinese">الصيني</option>
+                <option value="mexican">المكسيكي</option>
+                <option value="japanese">الياباني</option>
+            </select>
+        </div>
+        <div class="col-md-4 mb-3 mb-md-0">
+            <label for="mealTypeFilter" class="form-label">نوع الوجبة:</label>
+            <select class="form-select" id="mealTypeFilter">
+                <option value="all" selected>الكل</option>
+                <option value="breakfast">فطور</option>
+                <option value="lunch">غداء</option>
+                <option value="dinner">عشاء</option>
+                <option value="snack">وجبة خفيفة</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="difficultyFilter" class="form-label">مستوى الصعوبة:</label>
+            <select class="form-select" id="difficultyFilter">
+                <option value="all" selected>الكل</option>
+                <option value="easy">سهل</option>
+                <option value="medium">متوسط</option>
+                <option value="hard">صعب</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<!-- قائمة الوصفات -->
+<div class="container">
+    <div class="row">
+        <!-- وصفة 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/pasta.png') }}" class="card-img-top" alt="باستا بالطماطم">
+                <div class="card-body">
+                    <h5 class="card-title">باستا بالطماطم</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">إيطالي</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 30 دقيقة</span>
+                    </div>
+                    <p class="card-text">باستا سريعة التحضير مع صلصة الطماطم الطازجة والريحان.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{{ url_for('recipe_details', recipe_id=4) }}" class="btn btn-primary">عرض الوصفة</a>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- وصفة 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/couscous.png') }}" class="card-img-top" alt="كسكس مغربي">
+                <div class="card-body">
+                    <h5 class="card-title">كسكس مغربي</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">مغربي</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 60 دقيقة</span>
+                    </div>
+                    <p class="card-text">طبق مغربي تقليدي من الكسكس مع الخضروات واللحم المطهو ببطء.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{{ url_for('recipe_details', recipe_id=5) }}" class="btn btn-primary">عرض الوصفة</a>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- وصفة 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/curry.png') }}" class="card-img-top" alt="كاري هندي">
+                <div class="card-body">
+                    <h5 class="card-title">كاري هندي</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">هندي</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 45 دقيقة</span>
+                    </div>
+                    <p class="card-text">طبق هندي غني بالتوابل والبهارات مع الدجاج والخضروات.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{{ url_for('recipe_details', recipe_id=7) }}" class="btn btn-primary">عرض الوصفة</a>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ترقيم الصفحات -->
+<div class="container">
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">السابق</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">التالي</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<!-- معلومات عن المطابخ العالمية -->
+<div class="container my-5">
+    <div class="card bg-light">
+        <div class="card-body">
+            <h3 class="card-title">المطابخ العالمية</h3>
+            <p>المطابخ العالمية تقدم تنوعاً هائلاً من النكهات والتقنيات والمكونات التي تعكس ثقافات وتقاليد مختلف الشعوب حول العالم.</p>
+            <p>في هذا القسم، نقدم لك مجموعة مختارة من أشهر الأطباق العالمية بطرق تحضير مبسطة تناسب المطبخ العربي، مع الحفاظ على النكهات الأصلية قدر الإمكان.</p>
+            <p>استكشف هذه الوصفات وأضف لمسات عالمية إلى مائدتك اليومية باستخدام المكونات المتوفرة في مطبخك.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // سكريبت لتفعيل فلاتر البحث
+    document.addEventListener('DOMContentLoaded', function() {
+        const cuisineFilter = document.getElementById('cuisineFilter');
+        const mealTypeFilter = document.getElementById('mealTypeFilter');
+        const difficultyFilter = document.getElementById('difficultyFilter');
+        
+        // تحديث النتائج عند تغيير الفلاتر
+        function updateResults() {
+            // هنا سيتم إضافة الكود الفعلي لتحديث النتائج بناءً على الفلاتر المحددة
+            console.log('تحديث النتائج:', {
+                cuisine: cuisineFilter.value,
+                mealType: mealTypeFilter.value,
+                difficulty: difficultyFilter.value
+            });
+        }
+        
+        cuisineFilter.addEventListener('change', updateResults);
+        mealTypeFilter.addEventListener('change', updateResults);
+        difficultyFilter.addEventListener('change', updateResults);
+    });
+</script>
+{% endblock %}

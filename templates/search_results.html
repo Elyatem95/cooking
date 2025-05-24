@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+
+{% block title %}نتائج البحث - شن نطيبلك يا سالم{% endblock %}
+
+{% block content %}
+<!-- عنوان الصفحة -->
+<div class="container my-4">
+    <h1 class="text-center mb-4">نتائج البحث</h1>
+    <p class="text-center lead mb-5">وجدنا لك هذه الوصفات بناءً على المكونات التي اخترتها</p>
+</div>
+
+<!-- فلاتر البحث -->
+<div class="container search-filters mb-4">
+    <div class="row">
+        <div class="col-md-4 mb-3 mb-md-0">
+            <label for="sortFilter" class="form-label">ترتيب حسب:</label>
+            <select class="form-select" id="sortFilter">
+                <option value="match" selected>الأكثر تطابقاً</option>
+                <option value="time">الأسرع تحضيراً</option>
+                <option value="easy">الأسهل</option>
+                <option value="rating">الأعلى تقييماً</option>
+            </select>
+        </div>
+        <div class="col-md-4 mb-3 mb-md-0">
+            <label for="cuisineFilter" class="form-label">المطبخ:</label>
+            <select class="form-select" id="cuisineFilter">
+                <option value="all" selected>الكل</option>
+                <option value="arabic">عربي</option>
+                <option value="international">عالمي</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="timeFilter" class="form-label">وقت التحضير:</label>
+            <select class="form-select" id="timeFilter">
+                <option value="all" selected>الكل</option>
+                <option value="15">أقل من 15 دقيقة</option>
+                <option value="30">أقل من 30 دقيقة</option>
+                <option value="60">أقل من ساعة</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<!-- المكونات المختارة -->
+<div class="container mb-4">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">المكونات المختارة</h3>
+        </div>
+        <div class="card-body">
+            <div class="selected-ingredients">
+                <span class="badge bg-secondary me-2 mb-2">طماطم</span>
+                <span class="badge bg-secondary me-2 mb-2">بصل</span>
+                <span class="badge bg-secondary me-2 mb-2">دجاج</span>
+                <span class="badge bg-secondary me-2 mb-2">أرز</span>
+                <span class="badge bg-secondary me-2 mb-2">زيت زيتون</span>
+            </div>
+            <div class="mt-3">
+                <a href="{{ url_for('ingredient_search') }}" class="btn btn-outline-primary">تعديل المكونات</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- قائمة الوصفات -->
+<div class="container">
+    <div class="row">
+        <!-- وصفة 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/kabsa.png') }}" class="card-img-top" alt="كبسة دجاج">
+                <div class="card-body">
+                    <h5 class="card-title">كبسة دجاج</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">عربي</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 60 دقيقة</span>
+                    </div>
+                    <div class="match-percentage mb-2">
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small class="text-muted">تطابق 90% مع مكوناتك</small>
+                    </div>
+                    <p class="card-text">طبق سعودي تقليدي من الأرز والدجاج المتبل بالبهارات العربية الأصيلة.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{{ url_for('recipe_details', recipe_id=1) }}" class="btn btn-primary">عرض الوصفة</a>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- وصفة 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/pasta.png') }}" class="card-img-top" alt="باستا بالدجاج">
+                <div class="card-body">
+                    <h5 class="card-title">باستا بالدجاج</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">عالمي</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 30 دقيقة</span>
+                    </div>
+                    <div class="match-percentage mb-2">
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small class="text-muted">تطابق 85% مع مكوناتك</small>
+                    </div>
+                    <p class="card-text">باستا سريعة التحضير مع الدجاج وصلصة الطماطم الطازجة.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{{ url_for('recipe_details', recipe_id=2) }}" class="btn btn-primary">عرض الوصفة</a>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- وصفة 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/curry.png') }}" class="card-img-top" alt="كاري دجاج">
+                <div class="card-body">
+                    <h5 class="card-title">كاري دجاج</h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-secondary">عالمي</span>
+                        <span class="recipe-meta-item"><i class="far fa-clock"></i> 45 دقيقة</span>
+                    </div>
+                    <div class="match-percentage mb-2">
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small class="text-muted">تطابق 75% مع مكوناتك</small>
+                    </div>
+                    <p class="card-text">طبق هندي غني بالتوابل والبهارات مع الدجاج والخضروات.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{{ url_for('recipe_details', recipe_id=3) }}" class="btn btn-primary">عرض الوصفة</a>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ترقيم الصفحات -->
+<div class="container">
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">السابق</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">التالي</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<!-- نصائح للمستخدمين -->
+<div class="container my-5">
+    <div class="card bg-light">
+        <div class="card-body">
+            <h3 class="card-title">لم تجد ما تبحث عنه؟</h3>
+            <p>جرب هذه النصائح للحصول على نتائج أفضل:</p>
+            <ul class="mb-0">
+                <li>قلل عدد المكونات المحددة للحصول على خيارات أكثر.</li>
+                <li>جرب تغيير المكونات الرئيسية مثل نوع اللحم أو الخضروات.</li>
+                <li>استخدم فلاتر البحث لتصفية النتائج حسب وقت التحضير أو نوع المطبخ.</li>
+                <li>تحقق من قسم <a href="{{ url_for('arabic_recipes') }}">أشهر الأكلات العربية</a> أو <a href="{{ url_for('international_recipes') }}">أشهر الأكلات العالمية</a> للإلهام.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // سكريبت لتفعيل فلاتر البحث
+    document.addEventListener('DOMContentLoaded', function() {
+        const sortFilter = document.getElementById('sortFilter');
+        const cuisineFilter = document.getElementById('cuisineFilter');
+        const timeFilter = document.getElementById('timeFilter');
+        
+        // تحديث النتائج عند تغيير الفلاتر
+        function updateResults() {
+            // هنا سيتم إضافة الكود الفعلي لتحديث النتائج بناءً على الفلاتر المحددة
+            console.log('تحديث النتائج:', {
+                sort: sortFilter.value,
+                cuisine: cuisineFilter.value,
+                time: timeFilter.value
+            });
+        }
+        
+        sortFilter.addEventListener('change', updateResults);
+        cuisineFilter.addEventListener('change', updateResults);
+        timeFilter.addEventListener('change', updateResults);
+    });
+</script>
+{% endblock %}

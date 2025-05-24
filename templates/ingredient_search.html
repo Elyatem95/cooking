@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+
+{% block title %}ماذا أطبخ اليوم؟ - شن نطيبلك يا سالم{% endblock %}
+
+{% block content %}
+<!-- عنوان الصفحة -->
+<div class="container my-4">
+    <h1 class="text-center mb-4">ماذا أطبخ اليوم؟</h1>
+    <p class="text-center lead mb-5">أخبرنا بالمكونات المتوفرة لديك وسنقترح عليك أفضل الوصفات التي يمكنك تحضيرها</p>
+</div>
+
+<!-- نموذج اختيار المكونات -->
+<div class="container mb-5">
+    <form id="ingredientsForm" action="{{ url_for('search.search_results') }}" method="get">
+        <div class="row">
+            <!-- الخضروات -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">الخضروات</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="tomato" id="tomato">
+                                    <label class="form-check-label" for="tomato">طماطم</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="cucumber" id="cucumber">
+                                    <label class="form-check-label" for="cucumber">خيار</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="onion" id="onion">
+                                    <label class="form-check-label" for="onion">بصل</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="garlic" id="garlic">
+                                    <label class="form-check-label" for="garlic">ثوم</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="potato" id="potato">
+                                    <label class="form-check-label" for="potato">بطاطس</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="carrot" id="carrot">
+                                    <label class="form-check-label" for="carrot">جزر</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="pepper" id="pepper">
+                                    <label class="form-check-label" for="pepper">فلفل</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="eggplant" id="eggplant">
+                                    <label class="form-check-label" for="eggplant">باذنجان</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="zucchini" id="zucchini">
+                                    <label class="form-check-label" for="zucchini">كوسة</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="lettuce" id="lettuce">
+                                    <label class="form-check-label" for="lettuce">خس</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="spinach" id="spinach">
+                                    <label class="form-check-label" for="spinach">سبانخ</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="molokhia" id="molokhia">
+                                    <label class="form-check-label" for="molokhia">ملوخية</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- اللحوم -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">اللحوم</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="chicken" id="chicken">
+                                    <label class="form-check-label" for="chicken">دجاج</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="beef" id="beef">
+                                    <label class="form-check-label" for="beef">لحم بقري</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="lamb" id="lamb">
+                                    <label class="form-check-label" for="lamb">لحم ضأن</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="fish" id="fish">
+                                    <label class="form-check-label" for="fish">سمك</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="tuna" id="tuna">
+                                    <label class="form-check-label" for="tuna">تونة</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="shrimp" id="shrimp">
+                                    <label class="form-check-label" for="shrimp">روبيان</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="minced_meat" id="minced_meat">
+                                    <label class="form-check-label" for="minced_meat">لحم مفروم</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="sausage" id="sausage">
+                                    <label class="form-check-label" for="sausage">نقانق</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- منتجات الألبان -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">منتجات الألبان</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="milk" id="milk">
+                                    <label class="form-check-label" for="milk">حليب</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="yogurt" id="yogurt">
+                                    <label class="form-check-label" for="yogurt">زبادي</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="cheese" id="cheese">
+                                    <label class="form-check-label" for="cheese">جبن</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="butter" id="butter">
+                                    <label class="form-check-label" for="butter">زبدة</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="cream" id="cream">
+                                    <label class="form-check-label" for="cream">كريمة</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="labneh" id="labneh">
+                                    <label class="form-check-label" for="labneh">لبنة</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- البقوليات والحبوب -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">البقوليات والحبوب</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="rice" id="rice">
+                                    <label class="form-check-label" for="rice">أرز</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="pasta" id="pasta">
+                                    <label class="form-check-label" for="pasta">معكرونة</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="lentils" id="lentils">
+                                    <label class="form-check-label" for="lentils">عدس</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="chickpeas" id="chickpeas">
+                                    <label class="form-check-label" for="chickpeas">حمص</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="beans" id="beans">
+                                    <label class="form-check-label" for="beans">فاصوليا</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="bulgur" id="bulgur">
+                                    <label class="form-check-label" for="bulgur">برغل</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="couscous" id="couscous">
+                                    <label class="form-check-label" for="couscous">كسكس</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="ingredients" value="freekeh" id="freekeh">
+                                    <label class="form-check-label" for="freekeh">فريكة</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- زر البحث -->
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary btn-lg">ابحث عن الوصفات</button>
+        </div>
+    </form>
+</div>
+
+<!-- نصائح للمستخدمين -->
+<div class="container mb-5">
+    <div class="card bg-light">
+        <div class="card-body">
+            <h3 class="card-title">نصائح للحصول على أفضل النتائج</h3>
+            <ul class="mb-0">
+                <li>حدد المكونات الرئيسية المتوفرة لديك للحصول على نتائج أكثر دقة.</li>
+                <li>يمكنك اختيار مكونات من فئات مختلفة للحصول على تنوع أكبر في الوصفات.</li>
+                <li>كلما زاد عدد المكونات المحددة، كلما كانت النتائج أكثر تحديداً.</li>
+                <li>لا تقلق إذا لم تكن جميع المكونات متوفرة لديك، سنقترح بدائل عند الإمكان.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // سكريبت لتحديد/إلغاء تحديد جميع المكونات في فئة معينة
+    document.addEventListener('DOMContentLoaded', function() {
+        // يمكن إضافة وظائف إضافية هنا مثل تحديد/إلغاء تحديد الكل
+    });
+</script>
+{% endblock %}
